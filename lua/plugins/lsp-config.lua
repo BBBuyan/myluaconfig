@@ -31,6 +31,7 @@ return {
         vim.keymap.set('n', '<space>e', function()
           vim.diagnostic.open_float(0, { scope = "line" })
         end, { noremap = true, silent = true, buffer = bufnr })
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
       end
 
 
