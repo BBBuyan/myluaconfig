@@ -47,7 +47,7 @@ return {
         settings = {
           Lua = {
             diagnostics = {
-              globals = { "vim" }, -- Tell LuaLS that "vim" is a global variable
+              globals = { "vim" },
             },
           },
         },
