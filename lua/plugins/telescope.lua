@@ -15,6 +15,7 @@ return {
           "%.jpg",
           "%.png",
           "%.zip",
+          ".venv",
         }
       }
     }

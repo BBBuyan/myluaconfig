@@ -9,3 +9,5 @@ vim.cmd("set mouse=a")
 vim.cmd("set autoindent")
 vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
+vim.cmd("set cursorline")
+vim.o.scrolloff=4
