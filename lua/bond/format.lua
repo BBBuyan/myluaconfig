@@ -6,8 +6,8 @@ vim.cmd("set list")
 vim.cmd("set listchars=tab:>-,space:·,eol:¬")
 vim.cmd("set expandtab")
 vim.cmd("set mouse=a")
-vim.cmd("set autoindent")
 vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
 vim.cmd("set cursorline")
 vim.o.scrolloff=4
+vim.o.signcolumn = "yes"

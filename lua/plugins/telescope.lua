@@ -16,6 +16,7 @@ return {
           "%.png",
           "%.zip",
           ".venv",
+          "__pycache__",
         }
       }
     }
