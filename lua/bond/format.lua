@@ -1,13 +1,16 @@
-vim.cmd("set expandtab")
-vim.cmd("set number")
-vim.cmd("set tabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set list")
-vim.cmd("set listchars=tab:>-,space:·,eol:¬")
-vim.cmd("set expandtab")
-vim.cmd("set mouse=a")
-vim.cmd("set ignorecase")
-vim.cmd("set smartcase")
-vim.cmd("set cursorline")
-vim.o.scrolloff=4
+vim.o.expandtab = true;
+vim.o.number = true;
 vim.o.signcolumn = "yes"
+
+vim.o.list = true;
+vim.o.listchars = "tab:>-,space:·,eol:¬";
+
+vim.o.scrolloff=4
+vim.o.tabstop = 4;
+vim.o.shiftwidth = 4;
+
+vim.o.autoindent = true;
+vim.o.smartindent = true;
+vim.o.smartcase = true;
+
+vim.o.mouse = "a";
