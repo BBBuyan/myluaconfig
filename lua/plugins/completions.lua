@@ -12,6 +12,8 @@ return {
     {
         "hrsh7th/nvim-cmp",
         config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+
             local cmp = require 'cmp'
             local luasnip = require("luasnip")
 
@@ -22,13 +24,17 @@ return {
                     end,
                 },
                 window = {
-                    completion = cmp.config.window.bordered(),
-                    documentation = cmp.config.window.bordered(),
+                    completion = cmp.config.window.bordered({
+                        border = "single"
+                    }),
+                    documentation = cmp.config.window.bordered({
+                        border = "single"
+                    }),
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                    ['<C-c>'] = cmp.mapping.complete(),
+                    ['<C-Space>'] = cmp.mapping.complete(),
                     ['<C-e>'] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
