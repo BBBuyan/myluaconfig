@@ -14,3 +14,5 @@ vim.o.smartindent = true;
 vim.o.smartcase = true;
 
 vim.o.mouse = "a";
+
+vim.o.winborder = "single"
