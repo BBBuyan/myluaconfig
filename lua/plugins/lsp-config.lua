@@ -32,13 +32,9 @@ return {
                 vim.keymap.set("n", "<leader>gd", tele.lsp_definitions, opts)     -- Go to definition
                 vim.keymap.set("n", "<leader>gi", tele.lsp_implementations, opts) -- Go to implementation
                 vim.keymap.set("n", "<leader>gr", tele.lsp_references, opts)      -- Show references
-
                 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)  -- Go to declaration
                 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, opts)       -- Format the text
-                vim.keymap.set('n', '<space>e',
-                    function()
-                        vim.diagnostic.open_float(bufnr, { scope = "line", border = "single" })
-                    end,
+                vim.keymap.set('n', '<space>e',vim.diagnostic.open_float,
                     { noremap = true, silent = true, buffer = bufnr }
                 )
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
