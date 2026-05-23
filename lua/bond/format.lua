@@ -5,7 +5,7 @@ vim.o.signcolumn = "yes"
 vim.o.list = true;
 vim.o.listchars = "tab:>-,space:·,eol:¬";
 
-vim.o.scrolloff=4
+vim.o.scrolloff = 4
 vim.o.tabstop = 4;
 vim.o.shiftwidth = 4;
 
