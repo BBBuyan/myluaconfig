@@ -2,30 +2,28 @@ return {
     {
         "williamboman/mason.nvim",
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                registries = {
+                    "github:mason-org/mason-registry",
+                    "github:Crashdummyy/mason-registry",
+                }
+            })
         end
     },
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = {}
-            })
+            require("mason-lspconfig").setup({})
         end
     },
     {
         "neovim/nvim-lspconfig",
         config = function()
-            vim.lsp.enable("pyright")
-
-            vim.lsp.enable("lua_ls")
-
-            vim.lsp.enable("omnisharp")
-
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local tele = require("telescope.builtin")
 
             local on_attach = function(client, bufnr)
+                print("on_attach started")
                 local opts = { noremap = true, silent = true, buffer = bufnr }
 
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)                 -- Show documentation on hover
@@ -34,15 +32,25 @@ return {
                 vim.keymap.set("n", "<leader>gr", tele.lsp_references, opts)      -- Show references
                 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)  -- Go to declaration
                 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, opts)       -- Format the text
-                vim.keymap.set('n', '<space>e',vim.diagnostic.open_float,
+                vim.keymap.set('n', '<space>e', vim.diagnostic.open_float,
                     { noremap = true, silent = true, buffer = bufnr }
                 )
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
             end
+
             vim.lsp.config("*", {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
+
+            vim.lsp.config("roslyn_ls", {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            vim.lsp.enable("pyright")
+            vim.lsp.enable("lua_ls")
+            vim.lsp.enable("roslyn_ls")
         end
     }
 }

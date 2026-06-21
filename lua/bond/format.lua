@@ -10,6 +10,7 @@ vim.o.tabstop = 4;
 vim.o.shiftwidth = 4;
 
 vim.o.autoindent = true;
+vim.o.ignorecase = true
 vim.o.smartindent = true;
 vim.o.smartcase = true;
 
