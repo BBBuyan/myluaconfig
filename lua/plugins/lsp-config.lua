@@ -31,7 +31,9 @@ return {
                 vim.keymap.set("n", "<leader>gi", tele.lsp_implementations, opts) -- Go to implementation
                 vim.keymap.set("n", "<leader>gr", tele.lsp_references, opts)      -- Show references
                 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)  -- Go to declaration
-                vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, opts)       -- Format the text
+                vim.keymap.set("n", "<leader>fo", function ()
+                    vim.lsp.buf.format({async = true })
+                end , opts)       -- Format the text
                 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float,
                     { noremap = true, silent = true, buffer = bufnr }
                 )
@@ -39,6 +41,11 @@ return {
             end
 
             vim.lsp.config("*", {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            vim.lsp.config("pyright", {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
