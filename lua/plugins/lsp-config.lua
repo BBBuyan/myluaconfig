@@ -26,7 +26,6 @@ return {
                 print("on_attach started")
                 local opts = { noremap = true, silent = true, buffer = bufnr }
 
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)                 -- Show documentation on hover
                 vim.keymap.set("n", "<leader>gd", tele.lsp_definitions, opts)     -- Go to definition
                 vim.keymap.set("n", "<leader>gi", tele.lsp_implementations, opts) -- Go to implementation
                 vim.keymap.set("n", "<leader>gr", tele.lsp_references, opts)      -- Show references
@@ -34,6 +33,7 @@ return {
                 vim.keymap.set("n", "<leader>fo", function ()
                     vim.lsp.buf.format({async = true })
                 end , opts)       -- Format the text
+
                 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float,
                     { noremap = true, silent = true, buffer = bufnr }
                 )
@@ -50,14 +50,20 @@ return {
                 on_attach = on_attach,
             })
 
-            vim.lsp.config("roslyn_ls", {
+            vim.lsp.config("roslyn", {
                 capabilities = capabilities,
                 on_attach = on_attach,
+                settings = {
+                    ["csharp|background_analysis"] = {
+                        dotnet_analyzer_diagnostics_scope = "fullSolution",
+                        dotnet_compiler_diagnostics_scope = "fullSolution",
+                    }
+                }
             })
 
             vim.lsp.enable("pyright")
             vim.lsp.enable("lua_ls")
-            vim.lsp.enable("roslyn_ls")
+            vim.lsp.enable("roslyn")
         end
     }
 }
