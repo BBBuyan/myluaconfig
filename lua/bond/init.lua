@@ -1,9 +1,6 @@
 require("bond.remap")
 require("bond.format")
-vim.opt.shell = "pwsh"
-vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
-vim.opt.shellxquote = ""
-vim.opt.termguicolors = true
+require("bond.windows_shell")
 
 vim.filetype.add({
     extension = {

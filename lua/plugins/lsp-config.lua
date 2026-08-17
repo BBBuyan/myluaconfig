@@ -23,15 +23,6 @@ return {
 
             vim.lsp.config("*", { capabilities = capabilities, })
 
-            vim.lsp.config("roslyn", {
-                settings = {
-                    ["csharp|background_analysis"] = {
-                        dotnet_analyzer_diagnostics_scope = "fullSolution",
-                        dotnet_compiler_diagnostics_scope = "fullSolution",
-                    }
-                }
-            })
-
             vim.lsp.enable("pyright")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("roslyn")
