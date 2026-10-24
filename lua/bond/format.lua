@@ -17,3 +17,7 @@ vim.o.smartcase = true;
 vim.o.mouse = "a";
 
 vim.o.winborder = "single"
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99

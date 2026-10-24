@@ -24,6 +24,7 @@ return {
             vim.lsp.config("*", { capabilities = capabilities, })
 
             vim.lsp.enable("pyright")
+            vim.lsp.enable("vue_ls")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("roslyn")
             vim.lsp.enable("gopls")
